@@ -6,7 +6,7 @@
 
 [YouTube Tutorial](https://youtu.be/uk9pviyvrtg) for this repository.
 
-Add your API Keys to the .env file you will find on Glitch after launching this code there by using the button above.
+Add your API Keys to the .env file you will find on Glitch after launching this code by using the button above.
 
 Modify the code in your Glitch project to add your own custom API endpoints.
 
