@@ -9,6 +9,10 @@ const weather = require("./weather");
 
 app.use(express.json());
 
+// Use if you're behind a reverse proxy
+// https://expressjs.com/en/guide/behind-proxies.html
+// app.set('trust proxy', 1);
+
 const whitelist = ["http://127.0.0.1", "http://127.0.0.1:5500"];
 const corsOptions = {
   origin: (origin, callback) => {
@@ -22,6 +26,17 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+// If needed: Allow options to pass CORS preflight check
+/* app.options("/*", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type,Authorization,Content-Length,X-Requested-With"
+  );
+  res.sendStatus(200);
+}); */
 
 const limiter = rateLimit({
   windowMs: 1000,
